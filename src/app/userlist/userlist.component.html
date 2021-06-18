@@ -1,0 +1,36 @@
+<app-homeform [currentUser]="currentUser" [isEdit]="isEdit" (newUser)="onNewUser($event)" (updatedUser)="onUpdatedUser($event)"></app-homeform>
+
+<br><br>
+
+<div class="container">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Phone</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td> {{ user.id }} </td>
+                <td> {{ user.name }} </td>
+                <td> {{ user.email }} </td>
+                <td> {{ user.phone }} </td>
+                <td><button 
+                    class="btn btn-outline-primary">
+                    <a style="text-decoration: none;" routerLink="/userview/{{ user.id }}">View</a></button></td>
+                <td><button 
+                    class="btn btn-outline-warning" 
+                    (click)="editUser(user)">Update</button></td>
+                <td><button 
+                    class="btn btn-outline-danger" 
+                    (click)="deleteUser(user)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

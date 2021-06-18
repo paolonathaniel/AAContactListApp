@@ -1,0 +1,22 @@
+<div class="container">
+  <form>
+      <div class="mb-3">
+          <label class="form-label"><strong>Name</strong></label>
+          <input type="text" class="form-control" name="name" [(ngModel)]="currentUser.name">
+      </div>
+
+      <div class="mb-3">
+          <label class="form-label"><strong>Email Address</strong></label>
+          <input type="email" class="form-control" name="email" [(ngModel)]="currentUser.email">
+      </div>
+
+      <div class="mb-3">
+          <label class="form-label"><strong>Phone</strong></label>
+          <input type="txt" class="form-control" name="phone" [(ngModel)]="currentUser.phone">
+      </div>
+
+      <button *ngIf="!isEdit" (click)="addUser(currentUser)" class="btn btn-success">Add</button>
+
+      <button *ngIf="isEdit" (click)="updateUser()" class="btn btn-success">Save</button>
+  </form>
+</div>
